@@ -15,10 +15,12 @@ links:
 * I imported my tool into my terminal and animated 2 boxes(one cube and one prism) of different colors spinning in opposite ways
 * Reading the tutorials made me confused about what the results were supposed to show but as I continued reading, I understood what each part was supposed to show
 * When I tried to create a cube again by copying and pasting, it didn't work but then I realized I needed to create a new name for the prism
-* next, I'm going to try to animate the boxes a different way and testing all the features the tool has
+* next, I'm going to try to animate the boxes a different way and test all the features the tool has
 
-X/X/X:
-* Text
+11/26/23
+* created a 3d block model
+* added the head, body, arms, and legs into a group
+* https://tympanus.net/codrops/2021/10/04/creating-3d-characters-in-three-js/
 
 
 <!-- 
