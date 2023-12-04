@@ -22,6 +22,14 @@ links:
 * added the head, body, arms, and legs into a group
 * https://tympanus.net/codrops/2021/10/04/creating-3d-characters-in-three-js/
 
+12/3/23
+
+* tried creating a scene
+* added grass with a planar
+* used planar from three.js
+* use a website tutorial but couldn't understand why it was spinning
+* after deleting some of the code, i figured it out
+
 
 <!-- 
 * Links you used today (websites, videos, etc)
