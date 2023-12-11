@@ -30,8 +30,31 @@ links:
 * use a website tutorial but couldn't understand why it was spinning
 * after deleting some of the code, i figured it out
 
+12/10/23
 
-<!-- 
+* used a tutorial to add a box in a scene and I was able to control the camera
+* I tried to move my file into another folder and I had trouble with turning the versions
+* https://www.youtube.com/watch?v=sPereCgQnWQ
+* tried different textures and how they reacted with light
+* I also tried changing the shapes so see how different colors and shapes would react with shadows and shading
+
+-- the top shows the light and how it will affect the shadows of the shape, the 2 represents intensity of light
+-- the new orbit controls means I get to control the camera, this will be very useful in creating a game
+```js
+ const light = new THREE.DirectionalLight( 0xffffff, 2 );
+  light.position.z = 3;
+scene.add(light)
+
+  const renderer = new THREE.WebGLRenderer()
+  renderer.setSize(window.innerWidth, window.innerHeight)
+  document.body.appendChild(renderer.domElement)
+
+  const controls = new OrbitControls(camera, renderer.domElement)
+  ```
+
+  -- Later, I will continue to watch to video but I will also try to find tutorials on ways to interact with certain objects in the scene
+
+<!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
 * Challenges, a-ha moments, etc
