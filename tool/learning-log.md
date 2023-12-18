@@ -54,6 +54,22 @@ scene.add(light)
 
   -- Later, I will continue to watch to video but I will also try to find tutorials on ways to interact with certain objects in the scene
 
+12/17/23
+
+ * used the same video and created a gravity and collision
+ * I am now able to move the box using wasd
+ * When the box "spawn", the box will fall and bounce with the gravity
+ ```js
+ cube.velocity.x = 0
+    cube.velocity.z = 0
+    if (keys.w.pressed) cube.velocity.z = -0.02
+    else if (keys.s.pressed) cube.velocity.z = 0.02
+    if (keys.a.pressed) cube.velocity.x = -0.02
+    else if (keys.d.pressed) cube.velocity.x = 0.02
+ ```
+ code above shows that if each key is pressed, then the cube moves a certain direction
+ * next I will want to make the box jump using space
+ * I want to be able to move entire models (character models)
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
