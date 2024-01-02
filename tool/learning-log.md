@@ -70,6 +70,19 @@ scene.add(light)
  code above shows that if each key is pressed, then the cube moves a certain direction
  * next I will want to make the box jump using space
  * I want to be able to move entire models (character models)
+
+ winter break
+
+ * made the box able to jump using space bar
+ * added another box to test how it would work with another object
+ * added collision with the object
+ * I tried to move the camera position but was unable to successfully finish
+ * https://www.youtube.com/watch?v=C3s0UHpwlf8
+ * https://github.com/tamani-coding/threejs-character-controls-example/blob/main/src/characterControls.ts
+ * https://www.youtube.com/watch?v=vsAURPIOBfI
+ * https://www.youtube.com/watch?v=UuNPHOJ_V5o git
+
+ * I need to find a way to revamp my code and find a way to fit their code into mine
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc

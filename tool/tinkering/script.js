@@ -4,11 +4,13 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 const scene = new THREE.Scene()
   const camera = new THREE.PerspectiveCamera(
-    75,
+    70,
     window.innerWidth / window.innerHeight,
     0.1,
-    1000
+    100,
   )
+
+  camera.position.z = 5
 
   const renderer = new THREE.WebGLRenderer()
   renderer.shadowMap.enabled = true
@@ -85,8 +87,27 @@ const scene = new THREE.Scene()
       x: 0,
       y:-0.02,
       z: 0
+    },
+    position: {
+      x: 2,
+      y: 1,
+      x: 2
     }
   })
+
+  const newcube = new Box({
+    width: 1,
+    height: 1,
+    depth: 1,
+    velocity: {
+      x: 0,
+      y:-0.02,
+      z: 0
+    }
+  })
+
+  newcube.castShowdow = true
+  scene.add(newcube)
   cube.castShadow = true
   scene.add(cube)
 
@@ -104,10 +125,6 @@ const scene = new THREE.Scene()
 
   ground.receiveShadow = true
   scene.add(ground)
-
-  camera.position.z = 5
-// console.log(ground.top)
-// console.log(cube.bottom)
 
   const keys = {
     w: {
@@ -164,21 +181,46 @@ const scene = new THREE.Scene()
     }
   )
 
+  const followCam = new THREE.Object3D();
+  camera.lookAt(scene.position);
+
+  followCam.position.copy(camera.position);
+  scene.add(followCam);
+  followCam.parent = cube;
+
   function animate() {
     requestAnimationFrame(animate)
     renderer.render(scene, camera)
 
     cube.velocity.x = 0
     cube.velocity.z = 0
-    if (keys.w.pressed) cube.velocity.z = -0.02
-    else if (keys.s.pressed) cube.velocity.z = 0.02
-    if (keys.a.pressed) cube.velocity.x = -0.02
-    else if (keys.d.pressed) cube.velocity.x = 0.02
-
+    // if (keys.w.pressed) cube.velocity.z = -0.02
+    // else if (keys.s.pressed) cube.velocity.z = 0.02
+    // if (keys.a.pressed) cube.velocity.x = -0.02
+    // else if (keys.d.pressed) cube.velocity.x = 0.02
+    var directionOffset = 0
+    if (keys.w.pressed) {
+      if (keys.a.pressed) {
+          directionOffset = Math.PI / 4 // w+a
+      } else if (keys.d.pressed) {
+          directionOffset = - Math.PI / 4 // w+d
+      }
+  } else if (keys.s.pressed) {
+      if (keys.a.pressed) {
+          directionOffset = Math.PI / 4 + Math.PI / 2 // s+a
+      } else if (keys.d.pressed) {
+          directionOffset = -Math.PI / 4 - Math.PI / 2 // s+d
+      } else {
+          directionOffset = Math.PI // s
+      }
+  } else if (keys.a.pressed) {
+      directionOffset = Math.PI / 2 // a
+  } else if (keys.d.pressed) {
+      directionOffset = - Math.PI / 2 // d
+  }
 
     cube.update(ground)
-    // cube.position.y -= 0.01
-    // cube.rotation.x += 0.01
-    // cube.rotation.y += 0.01
+    newcube.update(ground)
   }
   animate()
+
