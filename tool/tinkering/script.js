@@ -126,60 +126,60 @@ const scene = new THREE.Scene()
   ground.receiveShadow = true
   scene.add(ground)
 
-  const keys = {
-    w: {
-      pressed: false
-    },
-    a: {
-      pressed: false
-    },
-    s: {
-      pressed: false
-    },
-    d: {
-      pressed: false
-    },
+  // const keys = {
+  //   w: {
+  //     pressed: false
+  //   },
+  //   a: {
+  //     pressed: false
+  //   },
+  //   s: {
+  //     pressed: false
+  //   },
+  //   d: {
+  //     pressed: false
+  //   },
 
-  }
+  // }
 
-  window.addEventListener('keydown', (event) => {
-      switch (event.code) {
-        case 'KeyW':
-          keys.w.pressed = true
-          break
-        case 'KeyA':
-          keys.a.pressed = true
-          break
-        case 'KeyS':
-          keys.s.pressed = true
-          break
-        case 'KeyD':
-          keys.d.pressed = true
-          break
-        // case 'KeyD':
-        //   break
-      }
-    }
-  )
-  window.addEventListener('keyup', (event) => {
-    switch (event.code) {
-      case 'KeyW':
-        keys.w.pressed = false
-        break
-      case 'KeyA':
-        keys.a.pressed = false
-        break
-      case 'KeyS':
-        keys.s.pressed = false
-        break
-      case 'KeyD':
-        keys.d.pressed = false
-        break
-      // case 'KeyD':
-      //   break
-      }
-    }
-  )
+  // window.addEventListener('keydown', (event) => {
+  //     switch (event.code) {
+  //       case 'KeyW':
+  //         keys.w.pressed = true
+  //         break
+  //       case 'KeyA':
+  //         keys.a.pressed = true
+  //         break
+  //       case 'KeyS':
+  //         keys.s.pressed = true
+  //         break
+  //       case 'KeyD':
+  //         keys.d.pressed = true
+  //         break
+  //       // case 'KeyD':
+  //       //   break
+  //     }
+  //   }
+  // )
+  // window.addEventListener('keyup', (event) => {
+  //   switch (event.code) {
+  //     case 'KeyW':
+  //       keys.w.pressed = false
+  //       break
+  //     case 'KeyA':
+  //       keys.a.pressed = false
+  //       break
+  //     case 'KeyS':
+  //       keys.s.pressed = false
+  //       break
+  //     case 'KeyD':
+  //       keys.d.pressed = false
+  //       break
+  //     // case 'KeyD':
+  //     //   break
+  //     }
+  //   }
+  // )
 
   const followCam = new THREE.Object3D();
   camera.lookAt(scene.position);
