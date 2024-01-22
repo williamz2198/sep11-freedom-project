@@ -71,11 +71,11 @@ scene.add(light)
  * next I will want to make the box jump using space
  * I want to be able to move entire models (character models)
 
- winter break
+ winter break + the week after
 
- * made the box able to jump using space bar
+ * made the box able to jump using the space bar
  * added another box to test how it would work with another object
- * added collision with the object
+ * Added collision with the object
  * I tried to move the camera position but was unable to successfully finish
  * https://www.youtube.com/watch?v=C3s0UHpwlf8
  * https://github.com/tamani-coding/threejs-character-controls-example/blob/main/src/characterControls.ts
