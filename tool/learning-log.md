@@ -83,6 +83,14 @@ scene.add(light)
  * https://www.youtube.com/watch?v=UuNPHOJ_V5o git
 
  * I need to find a way to revamp my code and find a way to fit their code into mine
+
+ 12/21/24
+
+ Tried using the documentation to add workds and lines onto a scene.
+ I tried changing the colors and words
+ I ended up not liking the text and will probably not use them in my freedom project
+ https://threejs.org/docs/index.html#manual/en/introduction/Creating-text
+
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc

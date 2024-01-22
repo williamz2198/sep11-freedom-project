@@ -95,19 +95,19 @@ const scene = new THREE.Scene()
     }
   })
 
-  const newcube = new Box({
-    width: 1,
-    height: 1,
-    depth: 1,
-    velocity: {
-      x: 0,
-      y:-0.02,
-      z: 0
-    }
-  })
+  // const newcube = new Box({
+  //   width: 1,
+  //   height: 1,
+  //   depth: 1,
+  //   velocity: {
+  //     x: 0,
+  //     y:-0.02,
+  //     z: 0
+  //   }
+  // })
 
-  newcube.castShowdow = true
-  scene.add(newcube)
+  // newcube.castShowdow = true
+  // scene.add(newcube)
   cube.castShadow = true
   scene.add(cube)
 
@@ -126,67 +126,66 @@ const scene = new THREE.Scene()
   ground.receiveShadow = true
   scene.add(ground)
 
-  // const keys = {
-  //   w: {
-  //     pressed: false
-  //   },
-  //   a: {
-  //     pressed: false
-  //   },
-  //   s: {
-  //     pressed: false
-  //   },
-  //   d: {
-  //     pressed: false
-  //   },
+  const keys = {
+    w: {
+      pressed: false
+    },
+    a: {
+      pressed: false
+    },
+    s: {
+      pressed: false
+    },
+    d: {
+      pressed: false
+    },
+  }
 
-  // }
+  window.addEventListener('keydown', (event) => {
+      switch (event.code) {
+        case 'KeyW':
+          keys.w.pressed = true
+          break
+        case 'KeyA':
+          keys.a.pressed = true
+          break
+        case 'KeyS':
+          keys.s.pressed = true
+          break
+        case 'KeyD':
+          keys.d.pressed = true
+          break
+        // case 'KeyD':
+        //   break
+      }
+    }
+  )
+  window.addEventListener('keyup', (event) => {
+    switch (event.code) {
+      case 'KeyW':
+        keys.w.pressed = false
+        break
+      case 'KeyA':
+        keys.a.pressed = false
+        break
+      case 'KeyS':
+        keys.s.pressed = false
+        break
+      case 'KeyD':
+        keys.d.pressed = false
+        break
+      // case 'KeyD':
+      //   break
+      }
+    }
+  )
 
-  // window.addEventListener('keydown', (event) => {
-  //     switch (event.code) {
-  //       case 'KeyW':
-  //         keys.w.pressed = true
-  //         break
-  //       case 'KeyA':
-  //         keys.a.pressed = true
-  //         break
-  //       case 'KeyS':
-  //         keys.s.pressed = true
-  //         break
-  //       case 'KeyD':
-  //         keys.d.pressed = true
-  //         break
-  //       // case 'KeyD':
-  //       //   break
-  //     }
-  //   }
-  // )
-  // window.addEventListener('keyup', (event) => {
-  //   switch (event.code) {
-  //     case 'KeyW':
-  //       keys.w.pressed = false
-  //       break
-  //     case 'KeyA':
-  //       keys.a.pressed = false
-  //       break
-  //     case 'KeyS':
-  //       keys.s.pressed = false
-  //       break
-  //     case 'KeyD':
-  //       keys.d.pressed = false
-  //       break
-  //     // case 'KeyD':
-  //     //   break
-  //     }
-  //   }
-  // )
+  // const followCam = new THREE.Object3D();
+  // camera.lookAt(scene.position);
 
-  const followCam = new THREE.Object3D();
-  camera.lookAt(scene.position);
-
-  followCam.position.copy(camera.position);
-  scene.add(followCam);
-  followCam.parent = cube;
+  // followCam.position.copy(camera.position);
+  // scene.add(followCam);
+  // followCam.parent = cube;
 
   function animate() {
     requestAnimationFrame(animate)
@@ -194,33 +193,36 @@ const scene = new THREE.Scene()
 
     cube.velocity.x = 0
     cube.velocity.z = 0
-    // if (keys.w.pressed) cube.velocity.z = -0.02
-    // else if (keys.s.pressed) cube.velocity.z = 0.02
-    // if (keys.a.pressed) cube.velocity.x = -0.02
-    // else if (keys.d.pressed) cube.velocity.x = 0.02
-    var directionOffset = 0
-    if (keys.w.pressed) {
-      if (keys.a.pressed) {
-          directionOffset = Math.PI / 4 // w+a
-      } else if (keys.d.pressed) {
-          directionOffset = - Math.PI / 4 // w+d
-      }
-  } else if (keys.s.pressed) {
-      if (keys.a.pressed) {
-          directionOffset = Math.PI / 4 + Math.PI / 2 // s+a
-      } else if (keys.d.pressed) {
-          directionOffset = -Math.PI / 4 - Math.PI / 2 // s+d
-      } else {
-          directionOffset = Math.PI // s
-      }
-  } else if (keys.a.pressed) {
-      directionOffset = Math.PI / 2 // a
-  } else if (keys.d.pressed) {
-      directionOffset = - Math.PI / 2 // d
-  }
+    if (keys.w.pressed) cube.velocity.z = -0.02
+    else if (keys.s.pressed) cube.velocity.z = 0.02
+    if (keys.a.pressed) cube.velocity.x = -0.02
+    else if (keys.d.pressed) cube.velocity.x = 0.02
+
+
+
+  //   var directionOffset = 0
+  //   if (keys.w.pressed) {
+  //     if (keys.a.pressed) {
+  //         directionOffset = Math.PI / 4 // w+a
+  //     } else if (keys.d.pressed) {
+  //         directionOffset = - Math.PI / 4 // w+d
+  //     }
+  // } else if (keys.s.pressed) {
+  //     if (keys.a.pressed) {
+  //         directionOffset = Math.PI / 4 + Math.PI / 2 // s+a
+  //     } else if (keys.d.pressed) {
+  //         directionOffset = -Math.PI / 4 - Math.PI / 2 // s+d
+  //     } else {
+  //         directionOffset = Math.PI // s
+  //     }
+  // } else if (keys.a.pressed) {
+  //     directionOffset = Math.PI / 2 // a
+  // } else if (keys.d.pressed) {
+  //     directionOffset = - Math.PI / 2 // d
+  // }
 
     cube.update(ground)
-    newcube.update(ground)
+    // newcube.update(ground)
   }
   animate()
 
