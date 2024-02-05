@@ -91,6 +91,14 @@ scene.add(light)
  I ended up not liking the text and will probably not use them in my freedom project
  https://threejs.org/docs/index.html#manual/en/introduction/Creating-text
 
+ 2/4/2024
+
+ I tried adding premade animations and models to try seeing how it would work on my project
+ Using a tutorial https://www.youtube.com/watch?v=UuNPHOJ_V5o, I made movement with the 3d model and I hope to impliment it with my own models or box characters in the future
+ I later will watch his other tutorials to create a camera that follows the character
+ I found it interesting to see the different ways different people used to create similar project with different code
+ Instead of using the model that they used in the video, I used a smaller one that I enjoyed
+
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
