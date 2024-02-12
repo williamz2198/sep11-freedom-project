@@ -30,7 +30,7 @@ This part gets the top and the bottom part of the boxes so it is able to know wh
     }
   }
 ```
-This applys the function that tells the code if the two boxes touch, then the movement would stop of the box falling. I also added another box with the same property so I can easily add more if I'd like in the future. I tried to change the camera so it would follow the character but I had many struggles that did not make it work. Some examples of what I want the camera to look like was similar to third person games like roblox. I tried to make the camera follow the box make the camera position equal to the position of the box plus an additional amount but it did not work. After many failed attempts, I decided to move on and come back later. I then went to the more basic features of three.js by adding lines and writing words. Here is an example of using lines: 
+This applys the function that tells the code if the two boxes touch, then the movement would stop of the box falling. I also added another box with the same property so I can easily add more if I'd like in the future. I tried to change the camera so it would follow the character but I had many struggles that did not make it work. Some examples of what I want the camera to look like was similar to third person games like roblox. I tried to make the camera follow the box make the camera position equal to the position of the box plus an additional amount but it did not work. After many failed attempts, I decided to move on and come back later. I then went to the more basic features of three.js from the [https://threejs.org/docs/#manual/en/introduction/Drawing-lines](documentation) by adding lines and writing words. Here is an example of using lines: 
 
 ```js
 const points = [];
@@ -44,6 +44,7 @@ const line = new THREE.Line( geometry, material );
 ```
 This code shows the creation of two points to connect the lines to create a shape. I also changed the points to create different shapes such as a star and made the words say different things. 
 
+Next, I will try to fix whatever code I couldn't do and create an actual follow camera. I might also try to import 3d models onto the scene with animations when they move. 
 [Previous](entry02.md) | [Next](entry04.md)
 
 [Home](../README.md)
