@@ -84,7 +84,7 @@ scene.add(light)
 
  * I need to find a way to revamp my code and find a way to fit their code into mine
 
- 12/21/24
+ 1/21/24
 
  Tried using the documentation to add workds and lines onto a scene.
  I tried changing the colors and words
@@ -98,6 +98,13 @@ scene.add(light)
  I later will watch his other tutorials to create a camera that follows the character
  I found it interesting to see the different ways different people used to create similar project with different code
  Instead of using the model that they used in the video, I used a smaller one that I enjoyed
+
+ 3/3/24
+
+ Started working on the freedom project
+ Using the knowledge from previous tinkering, I created a scene and the street that I plan my game to take place in
+ I also created a group where I will paste multiple times to have a typical house
+  It was hard to create the houses because I had to specificly put coordinates for each, I might have to find a new way to add them
 
 <!--
 * Links you used today (websites, videos, etc)

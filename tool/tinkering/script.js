@@ -199,28 +199,6 @@ const scene = new THREE.Scene()
     else if (keys.d.pressed) cube.velocity.x = 0.02
 
 
-
-  //   var directionOffset = 0
-  //   if (keys.w.pressed) {
-  //     if (keys.a.pressed) {
-  //         directionOffset = Math.PI / 4 // w+a
-  //     } else if (keys.d.pressed) {
-  //         directionOffset = - Math.PI / 4 // w+d
-  //     }
-  // } else if (keys.s.pressed) {
-  //     if (keys.a.pressed) {
-  //         directionOffset = Math.PI / 4 + Math.PI / 2 // s+a
-  //     } else if (keys.d.pressed) {
-  //         directionOffset = -Math.PI / 4 - Math.PI / 2 // s+d
-  //     } else {
-  //         directionOffset = Math.PI // s
-  //     }
-  // } else if (keys.a.pressed) {
-  //     directionOffset = Math.PI / 2 // a
-  // } else if (keys.d.pressed) {
-  //     directionOffset = - Math.PI / 2 // d
-  // }
-
     cube.update(ground)
     // newcube.update(ground)
   }
