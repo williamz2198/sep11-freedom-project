@@ -1,24 +1,33 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.js';
 
   const renderer = new THREE.WebGLRenderer();
   renderer.setSize( window.innerWidth, window.innerHeight );
   document.body.appendChild( renderer.domElement );
-  // renderer.shadowMap.enabled = true;
+  renderer.shadowMap.enabled = true;
   // renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   // renderer.setPixelRatio(window.devicePixelRatio);
 
   // Camera
-  const fov = 90;
-  const aspect = 1920 / 1080;
-  const near = 0.1;
-  const far = 1000.0;
-  const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
-  const controls = new OrbitControls(camera, renderer.domElement)
-  // camera.position.set(75, 20, 0)
-  camera.position.z = 5;
-  camera.position.y = 10
+  const camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 10000 );
+  // const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
+  // const controls = new OrbitControls(camera, renderer.domElement)
+  camera.position.set(75, 20, 0)
+  // camera.position.z = 5;
+  // camera.position.y = 10
+
+  // const controls = new FirstPersonControls( camera, renderer.domElement );
+  // controls.movementSpeed = 150;
+  // controls.lookSpeed = 0.1;
+  const controls = new FirstPersonControls( camera, renderer.domElement );
+
+                controls.movementSpeed = 70;
+                controls.lookSpeed = 0.05;
+                controls.noFly = true;
+                controls.lookVertical = false;
+
 
   // Create the scene
   const scene  = new THREE.Scene();
@@ -54,6 +63,17 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
   sidewalk.recieveShadow = true;
   scene.add(sidewalk)
 
+  const wallshape = new THREE.BoxGeometry ( 10, 10, 1);
+  const wallmaterial = new THREE.MeshStandardMaterial({ color: 0xb2b2b2})
+  const wall = new THREE.Mesh(wallshape, wallmaterial)
+  wall.position.set(5, 5, 10)
+  wall.recieveShadow = true;
+
+
+  const buildingGroup = new THREE.Group()
+  buildingGroup.add (wall)
+  // scene.add(buildingGroup)
+
   // const plane = new THREE.Mesh(
   //   new THREE.PlaneGeometry(100, 100, 1, 1),
   //   new THREE.MeshStandardMaterial({color: 0x000000}))
@@ -66,5 +86,6 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
   function animate() {
   requestAnimationFrame( animate );
   renderer.render( scene, camera );
+  controls.update();
   }
   animate()

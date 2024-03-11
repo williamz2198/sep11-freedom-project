@@ -104,7 +104,20 @@ scene.add(light)
  Started working on the freedom project
  Using the knowledge from previous tinkering, I created a scene and the street that I plan my game to take place in
  I also created a group where I will paste multiple times to have a typical house
-  It was hard to create the houses because I had to specificly put coordinates for each, I might have to find a new way to add them
+It was hard to create the houses because I had to specificly put coordinates for each, I might have to find a new way to add them
+
+  3/10/24
+
+* Instead of using the third person camera, I have decided to try the first person camera. I chose to change it because there was a function that was specificly made for first person camera in the documentation.
+* Using this tutorial, https://www.youtube.com/watch?v=oqKzxPMLWxo, I got started on camera with this code:
+
+```js
+  const controls = new FirstPersonControls( camera, renderer.domElement );
+  controls.movementSpeed = 150;
+  controls.lookSpeed = 0.1;
+```
+* At first I was really confused on whether the code was working because it showed all black, but after changing the background to an image, I was able to see that the camera was working
+
 
 <!--
 * Links you used today (websites, videos, etc)
