@@ -44,7 +44,8 @@ const line = new THREE.Line( geometry, material );
 ```
 This code shows the creation of two points to connect the lines to create a shape. I also changed the points to create different shapes such as a star and made the words say different things. 
 
-Next, I will try to fix whatever code I couldn't do and create an actual follow camera. I might also try to import 3d models onto the scene with animations when they move. 
+This is part of the creating a prototype and planing of the Engineering Design Process where I test the concepts of my tool and see which ones I will be able to use one my project. I developed skills like How to Google because I have to pick selected topics that would fit with my project. I searched things like third person camera and creating movement because it would fit with my idea of an open world game. I also developed how to debug. I encountered countless errors while trying to code. I would use the inspect feature many times trying to figure out which was the error and why it wasn't working. Next, I will try to fix whatever code I couldn't do and create an actual follow camera by using [this](https://www.youtube.com/watch?v=UuNPHOJ_V5o) video I found. I might also try to import 3d models onto the scene with animations when they move. 
+
 [Previous](entry02.md) | [Next](entry04.md)
 
 [Home](../README.md)
