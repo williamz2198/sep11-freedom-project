@@ -118,7 +118,7 @@ It was hard to create the houses because I had to specificly put coordinates for
 ```
 * At first I was really confused on whether the code was working because it showed all black, but after changing the background to an image, I was able to see that the camera was working
 
-3/17/24
+3/24/24
 
 Added a sky and background
 I was unable to correctly use the camera so I had to add a way to see if my camera was changning which made me add a sky
