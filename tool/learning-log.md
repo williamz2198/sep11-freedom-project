@@ -118,6 +118,13 @@ It was hard to create the houses because I had to specificly put coordinates for
 ```
 * At first I was really confused on whether the code was working because it showed all black, but after changing the background to an image, I was able to see that the camera was working
 
+4/15/24
+
+* I have finished most of the frame for my project by creating the buildings
+* I need to implement the controls I created before onto my project
+* to add more javascript, I need to make some doors interactive and when a specific button is pressed, a door will open
+
+
 
 <!--
 * Links you used today (websites, videos, etc)

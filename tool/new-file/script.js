@@ -14,23 +14,23 @@ import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.j
   const camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 10000 );
   // const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
   // const controls = new OrbitControls(camera, renderer.domElement)
-  camera.position.set(75, 20, 0)
+  camera.position.set(5, 20, 0)
   // camera.position.z = 5;
   // camera.position.y = 10
 
-  // const controls = new FirstPersonControls( camera, renderer.domElement );
-  // controls.movementSpeed = 150;
-  // controls.lookSpeed = 0.1;
   const controls = new FirstPersonControls( camera, renderer.domElement );
-
-                controls.movementSpeed = 70;
-                controls.lookSpeed = 0.05;
-                controls.noFly = true;
-                controls.lookVertical = false;
-
+  controls.movementSpeed = 150;
+  controls.lookSpeed = 0.1;
 
   // Create the scene
   const scene  = new THREE.Scene();
+  // scene.background = new THREE.Color('lightblue')
+
+
+  const skybackground = new THREE.CubeTextureLoader();
+  const loader = skybackground.load(['../sky.png'], ['../sky.png'], ['../sky.png'], ['../sky.png'], ['../sky.png'], ['../sky.png'])
+  scene.background = loader
+
 
   // Add lighting
   var light = new THREE.DirectionalLight(0x000000);
