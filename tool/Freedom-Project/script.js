@@ -34,7 +34,7 @@ import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.j
 
   // Roads
   const roadShape = new THREE.BoxGeometry (10, 0.6, 100);
-  const concrete = new THREE.MeshBasicMaterial( { color: 0x808076})
+  const concrete = new THREE.MeshStandardMaterial( { color: 0x808076})
   const road = new THREE.Mesh( roadShape, concrete)
   road.recieveShadow = true;
   scene.add(road)
@@ -45,7 +45,7 @@ import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.j
   scene.add(road2)
 
   const sidewalkRoad = new THREE.BoxGeometry (5, 0.7, 100);
-  const concreteSidewalk = new THREE.MeshBasicMaterial( { color: 0x000000})
+  const concreteSidewalk = new THREE.MeshStandardMaterial( { color: 0x000000})
   const sidewalk = new THREE.Mesh( sidewalkRoad, concreteSidewalk)
   sidewalk.recieveShadow = true;
   scene.add(sidewalk)
@@ -66,7 +66,7 @@ import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.j
 
   const wallmaterial = new THREE.MeshStandardMaterial({ color: 0xBC4A3C})
   const bluewall = new THREE.MeshStandardMaterial({color: 0x187BCD })
-  const windowWhite = new THREE.MeshBasicMaterial({color: 0xFFFFFF})
+  const windowWhite = new THREE.MeshStandardMaterial({color: 0xFFFFFF})
 
 
   const Redwall = new THREE.Mesh(wallshape, wallmaterial);
@@ -146,23 +146,12 @@ import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.j
   scene.add(buildingGroup2)
 
   class Box extends THREE.Mesh {
-    constructor({
-       width,
-       height,
-       depth,
-       color = '#00ff00',
-       velocity = {
-         x: 0,
-         y: 0,
-         z: 0
-       },
-       position = {
-         x: 0,
-         y: 0,
-         z: 0
-       }
-   }) {
-     super(
+    constructor({width, height, depth, color = '#00ff00',
+    velocity = { x: 0, y: 0, z: 0},
+    position = { x: 0, y: 0, z: 0}})
+
+    {
+      super(
        new THREE.BoxGeometry(width, height, depth),
        new THREE.MeshStandardMaterial({ color })
        )
@@ -176,7 +165,6 @@ import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.j
 
        this.velocity = velocity
        this.gravity = -0.005
-
      }
 
      update(group) {
@@ -217,9 +205,9 @@ import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.j
   scene.add(MC)
 
   const ground = new Box({
-    width: 100,
+    width: 120,
     height: 0.5,
-    depth: 100,
+    depth: 120,
     color: '#3f9B0B',
     position: {
       x: 0,
