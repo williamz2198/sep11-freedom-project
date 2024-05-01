@@ -192,12 +192,12 @@ const scene = new THREE.Scene()
     requestAnimationFrame(animate)
     renderer.render(scene, camera)
 
-    cube.velocity.x = 0
-    cube.velocity.z = 0
-    if (keys.w.pressed) cube.velocity.z = -0.02
-    else if (keys.s.pressed) cube.velocity.z = 0.02
-    if (keys.a.pressed) cube.velocity.x = -0.02
-    else if (keys.d.pressed) cube.velocity.x = 0.02
+    // cube.velocity.x = 0
+    // cube.velocity.z = 0
+    // if (keys.w.pressed) cube.velocity.z = -0.02
+    // else if (keys.s.pressed) cube.velocity.z = 0.02
+    // if (keys.a.pressed) cube.velocity.x = -0.02
+    // else if (keys.d.pressed) cube.velocity.x = 0.02
 
 
     cube.update(ground)

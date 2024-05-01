@@ -124,8 +124,12 @@ It was hard to create the houses because I had to specificly put coordinates for
 * I need to implement the controls I created before onto my project
 * to add more javascript, I need to make some doors interactive and when a specific button is pressed, a door will open
 
-
-
+Added a sky and background
+I was unable to correctly use the camera so I had to add a way to see if my camera was changning which made me add a sky
+```js
+  const skybackground = new THREE.CubeTextureLoader();
+  const loader = skybackground.load(['../sky.png'], ['../sky.png'], ['../sky.png'], ['../sky.png'], ['../sky.png'], ['../sky.png'])
+```
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
