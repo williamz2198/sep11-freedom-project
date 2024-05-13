@@ -23,10 +23,25 @@ I used the model group to combine the walls of each building into one so that I 
 
 Here is an example of one of my buildings. Each thing that was added to the group was a piece of wall or window. The position is also set according to where I want to place the building. 
 
-Another thing that I learned and added was the controls. To control the box, I added the controls for WASD to move forward, left, backward, and right. 
+Another thing that I learned and added was the controls. To control the box, I added the controls for WASD to move forward, left, backward, and right. Through the animate function, I ran the movement controls and the camera controls 
 
+``` javascript
+function animate() {
+    requestAnimationFrame( animate );
+    renderer.render( scene, camera );
+    MC.velocity.x = 0
+    MC.velocity.z = 0
+    if (keys.w.pressed) MC.velocity.z = -0.04
+    else if (keys.s.pressed) MC.velocity.z = 0.04
+    if (keys.a.pressed) MC.velocity.x = -0.04
+    else if (keys.d.pressed) MC.velocity.x = 0.04
+    MC.update(ground)
+    controls.update(50)
+  }
+  animate()
+```
 
-For beyond my MVP, I will make the person controls better by making it first-person and making the buildings collide with the player. I also want to add some things interactive, however, I'm not sure which things are possible for my project. 
+For beyond my MVP, I will make the person controls better by making it first-person and making the buildings collide with the player. I also want to add some things interactive, however, I'm not sure which things are possible for my project. The skills I developed are Time Management because I need to time myself to finish my MVP. I needed to space my work out throughout the weeks for me to finish my project. I also developed consideration because I need to think about how people will use the game. I need to think of how they will interact with the project and how they will view it. 
 
 [Previous](entry04.md) | [Next](entry06.md)
 
