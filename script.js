@@ -159,8 +159,8 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
   let prevTime = performance.now()
   const velocity = new THREE.Vector3();
   const direction = new THREE.Vector3()
-  var speed = 6
-  var movespeed = 75
+  var speed = 5
+  var movespeed = 150
   const mass = 80
   const gravity = 5
   const jumpSpeed = 100
@@ -186,7 +186,7 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
     }
     if (event.keyCode === 16){
       speed = 10;
-      movespeed = 300;
+      movespeed = 500;
     }
     if (code === 'Space') {
       isJumping = true;
@@ -209,7 +209,7 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
     }
     if (event.keyCode === 16){
       speed = 5;
-      movespeed = 75;
+      movespeed = 200;
     }
     if (code === 'Space') {
       isJumping = false;
