@@ -13,7 +13,6 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
 
   // Camera
   const camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 10000 );
-  // const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
   const controls = new PointerLockControls( camera, renderer.domElement )
 
   renderer.domElement.addEventListener( 'click', function() {
@@ -29,11 +28,13 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
   // Add lighting
   renderer.shadowMap.enabled = true
   const light = new THREE.DirectionalLight( 0xffffff, 2 );
+  const lightlight = new THREE.AmbientLight( 0xffff00, 0.04)
   light.position.x = 2;
   light.position.y = 4;
   light.position.z = 3;
   light.castShadow = true
   scene.add(light)
+  scene.add(lightlight)
 
 
   class Box extends THREE.Mesh {
@@ -90,16 +91,17 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
   }
 
   // buildings
+  const objects = []
 
   for(var i = -6; i < 6; i ++){
     for(var d = -6; d < 6; d ++){
-      var color1 = Math.floor(Math.random(0,255))
-      var color2 = Math.floor(Math.random(0,255))
-      var color3 = Math.floor(Math.random(0,255))
+      var color1 = Math.floor(Math.random() * 255)
+      var color2 = Math.floor(Math.random() * 255)
+      var color3 = Math.floor(Math.random() * 255)
 
       const building = new Box({
         width: 50,
-        height: 50,
+        height: 60,
         depth: 50,
         color: "rgb(color1, color2, color3)",
         position: {
@@ -123,9 +125,39 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
 
       building.recieveShadow = true
       scene.add(building)
+      objects.push(building)
       // scene.add(building2)
     }
   }
+
+  for(var i = 0; i < 2000; i++){
+    const cloudSize = Math.random() * 10 + 5
+    const cloudGeo = new THREE.OctahedronGeometry(cloudSize, 1)
+    const cloudMat = new THREE.MeshStandardMaterial({color: 0xffffff})
+    const cloud = new THREE.Mesh(cloudGeo, cloudMat)
+    const x = Math.random() * 1200 - 600
+    const y = Math.random() * 200 + 45
+    const z = Math.random() * 1200 - 600
+    cloud.position.set(x, y, z)
+    scene.add(cloud)
+    objects.push(cloud)
+  }
+
+  // bushes
+
+  // for(var i = 0; i < 500; i++){
+  //   const bushSize = Math.random() * 10 + 4
+  //   const bushGeo = new THREE.OctahedronGeometry(bushSize, 1)
+  //   const bushMat = new THREE.MeshStandardMaterial({color: 0x008000})
+  //   const bush = new THREE.Mesh(bushGeo, bushMat)
+  //   const x = Math.random() * 1200 - 600
+  //   const z = Math.random() * 1200 - 600
+  //   bush.position.set(x, 1, z)
+  //   scene.add(bush)
+  //   objects.push(bush)
+  // }
+
+
 
   const ground = new Box({
     width: 1200,
@@ -141,14 +173,15 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
   ground.recieveShadow = true
   scene.add(ground)
 
-  const objects = []
+console.log(objects)
   // objects.push(buildingGroup)
   // objects.push(buildingGroup2)
   objects.push(ground)
 
-
 // KeyActions
   let raycaster;
+
+
   let moveForward = false
   let moveBackward = false
   let moveLeft = false
@@ -160,7 +193,7 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
   const velocity = new THREE.Vector3();
   const direction = new THREE.Vector3()
   var speed = 5
-  var movespeed = 150
+  var movespeed = 100
   const mass = 80
   const gravity = 5
   const jumpSpeed = 100
@@ -168,7 +201,7 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
   document.addEventListener( 'keyup', onKeyUp);
   document.addEventListener( 'keydown', onKeyDown);
 
-  raycaster = new THREE.Raycaster( new THREE.Vector3(), new THREE.Vector3( 0, 0, 0 ), 0, 0 );
+  raycaster = new THREE.Raycaster( new THREE.Vector3(), new THREE.Vector3( 0, -0.9 , 0 ), 0, 10 );
 
   function onKeyDown(event) {
     const code = event.code;
@@ -209,7 +242,7 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
     }
     if (event.keyCode === 16){
       speed = 5;
-      movespeed = 200;
+      movespeed = 100;
     }
     if (code === 'Space') {
       isJumping = false;
@@ -223,7 +256,7 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
     raycaster.ray.origin.copy( controls.getObject().position ); // get the player position
 	  raycaster.ray.origin.y -= 10; // move down 10 units
 
-    const intersections = raycaster.intersectObjects( objects, false );
+    const intersections = raycaster.intersectObjects( objects, true );
     const onObject = intersections.length > 0;
 
     velocity.x -= velocity.x * speed * delta
