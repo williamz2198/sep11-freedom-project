@@ -100,9 +100,11 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
       var color3 = Math.floor(Math.random() * 255)
       var color = "rgb(" + color1 + "," + color2 + "," + color3 + ")"
 
+      var more = Math.floor(Math.random() * 40)
+
       const building = new Box({
         width: 50,
-        height: 60,
+        height: 55 + more,
         depth: 50,
         color: color,
         position: {
@@ -131,8 +133,10 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
     }
   }
 
+// clouds
+
   for(var i = 0; i < 2000; i++){
-    const cloudSize = Math.random() * 10 + 5
+    const cloudSize = Math.random() * 10 + 7
     const cloudGeo = new THREE.OctahedronGeometry(cloudSize, 1)
     const cloudMat = new THREE.MeshStandardMaterial({color: 0xffffff})
     const cloud = new THREE.Mesh(cloudGeo, cloudMat)
@@ -144,7 +148,18 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
     objects.push(cloud)
   }
 
-  // bushes
+  for(var i = 0; i < 2000; i++){
+    const cloudSize = Math.random() * 10 + 7
+    const cloudGeo = new THREE.OctahedronGeometry(cloudSize, 1)
+    const cloudMat = new THREE.MeshStandardMaterial({color: 0xd3d3d3})
+    const cloud = new THREE.Mesh(cloudGeo, cloudMat)
+    const x = Math.random() * 1200 - 600
+    const y = Math.random() * 200 + 200
+    const z = Math.random() * 1200 - 600
+    cloud.position.set(x, y, z)
+    scene.add(cloud)
+    objects.push(cloud)
+  }
 
   // for(var i = 0; i < 500; i++){
   //   const bushSize = Math.random() * 10 + 4
@@ -197,7 +212,7 @@ console.log(objects)
   var movespeed = 100
   const mass = 80
   const gravity = 5
-  const jumpSpeed = 100
+  const jumpSpeed = 120
 
   document.addEventListener( 'keyup', onKeyUp);
   document.addEventListener( 'keydown', onKeyDown);
