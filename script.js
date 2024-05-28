@@ -98,12 +98,13 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
       var color1 = Math.floor(Math.random() * 255)
       var color2 = Math.floor(Math.random() * 255)
       var color3 = Math.floor(Math.random() * 255)
+      var color = "rgb(" + color1 + "," + color2 + "," + color3 + ")"
 
       const building = new Box({
         width: 50,
         height: 60,
         depth: 50,
-        color: "rgb(color1, color2, color3)",
+        color: color,
         position: {
           x: 50 + 100*i,
           y: 0,

@@ -12,7 +12,7 @@ import { FirstPersonControls } from 'three/addons/controls/FirstPersonControls.j
 
   // Camera
   const camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 10000 );
-  const controls = new FirstPersonControls(camera, renderer.domElement)
+  const controls = new OrbitControls(camera, renderer.domElement)
   camera.position.set(0, 10, 20)
 
     controls.movementSpeed = 0.01;
