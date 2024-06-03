@@ -1,5 +1,5 @@
 # Entry 6
-##### X/X/XX
+##### 6/2/24
 
   My freedom project using three.js about a 3D open world parkour game has been completed, and I have presented my finished project during a class presentation and the expo. Firstly, I had to present my elevator pitch to the judges about my project where I showed the basic controls, the tool I used and specific challenges. I was nervous about my project because it wasn't exactly how I envisioned my end product. However, I felt proud of my project because I didn't follow the documentation word for word and actually wrote my own code and I was able to create and improvise my project to the things that I did learn throughout the year. Since I was at the end of the expo, I got the prepare myself for what I was going to say, which made things easier for me to prepare. During the explanation, I just pretended how I would present to a friend that didn't know about my project like the other people that were visiting my project and that made me relax a lot more. 
 
